@@ -3,289 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'IA avec esprit critique</title>
+    <title>Guide des outils IA - Bruxelles Formation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #16345f;
+            line-height: 1.6;
+            padding: 40px 20px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-        
+
         .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 40px;
             text-align: center;
+            margin-bottom: 60px;
         }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+
+        .main-title {
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-        
-        .central-concept {
-            background: #f8f9fa;
-            padding: 40px;
-            text-align: center;
-            border-bottom: 3px solid #e9ecef;
-        }
-        
-        .loop {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        
-        .loop-item {
-            background: white;
-            padding: 20px 30px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            font-weight: 600;
-            color: #2c3e50;
-            position: relative;
-            transition: transform 0.3s;
-        }
-        
-        .loop-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .arrow {
-            color: #667eea;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        
-        .key-message {
-            background: #667eea;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 1.1em;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 0;
-        }
-        
-        .section {
-            padding: 40px;
-            position: relative;
-        }
-        
-        .section h2 {
-            font-size: 1.5em;
+            font-size: 3rem;
+            color: #16345f;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
-        
-        .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+
+        .subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            color: #1c5ea9;
+            margin-bottom: 10px;
+        }
+
+        .bf-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: #16345f;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .tools-grid .tool-card:last-child {
+            grid-column: 1 / -1;
+            max-width: 500px;
+            justify-self: center;
+        }
+
+        .tool-card {
+            background: #ffffff;
+            border: 3px solid #e1f0fc;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 25px rgba(22, 52, 95, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(22, 52, 95, 0.15);
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #4286c6, #47b7a4, #4eae33);
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            background: #e1f0fc;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5em;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
         }
-        
-        .danger {
-            background: #fff5f5;
-            border-left: 4px solid #e74c3c;
+
+        .tool-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #16345f;
+            margin-bottom: 15px;
         }
-        
-        .danger .icon {
-            background: #e74c3c;
-            color: white;
+
+        .tool-description {
+            font-size: 1rem;
+            color: #16345f;
+            margin-bottom: 25px;
+            line-height: 1.7;
         }
-        
-        .success {
-            background: #f0fdf4;
-            border-left: 4px solid #27ae60;
+
+        .examples-section {
+            background: #faf7e1;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
         }
-        
-        .success .icon {
-            background: #27ae60;
-            color: white;
+
+        .examples-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            color: #87750e;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
         }
-        
-        .info {
-            background: #f0f9ff;
-            border-left: 4px solid #3498db;
-        }
-        
-        .info .icon {
-            background: #3498db;
-            color: white;
-        }
-        
-        .warning {
-            background: #fffbeb;
-            border-left: 4px solid #f39c12;
-        }
-        
-        .warning .icon {
-            background: #f39c12;
-            color: white;
-        }
-        
-        ul {
+
+        .example-list {
             list-style: none;
             padding: 0;
         }
-        
-        li {
-            padding: 12px 0;
-            padding-left: 35px;
-            position: relative;
-            line-height: 1.6;
-        }
-        
-        li:before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 20px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: currentColor;
-            opacity: 0.5;
-        }
-        
-        .example {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .example-label {
-            font-weight: 600;
-            color: #667eea;
-            font-size: 0.9em;
+
+        .example-list li {
+            color: #16345f;
             margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            padding-left: 20px;
+            position: relative;
         }
-        
-        .example-text {
-            font-family: 'Courier New', monospace;
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 5px;
-            border-left: 3px solid #667eea;
+
+        .example-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #4eae33;
+            font-weight: bold;
         }
-        
-        .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 30px;
-            text-align: center;
+
+        .tool-link {
+            display: inline-block;
+            background: #16345f;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            margin-top: 15px;
         }
-        
-        .principle {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
+
+        .tool-link:hover {
+            background: #1c5ea9;
+            transform: translateY(-2px);
         }
-        
-        .signature {
+
+        .key-features {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.95em;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
         }
-        
-        .cc-license {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
+
+        .feature-tag {
+            background: #def5d8;
+            color: #246a2e;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
-        
-        .cc-license svg {
-            height: 20px;
-            width: auto;
-            fill: white;
-        }
-        
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
+            .main-title {
+                font-size: 2.2rem;
             }
             
-            .loop {
-                flex-direction: column;
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .tools-grid .tool-card:last-child {
+                grid-column: 1;
+                max-width: none;
+                justify-self: stretch;
             }
             
-            .arrow {
-                transform: rotate(90deg);
-            }
-            
-            .signature {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            }
-            50% {
-                box-shadow: 0 4px 25px rgba(102, 126, 234, 0.5);
-            }
-            100% {
-                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            .tool-card {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -293,129 +214,101 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🧠 Utiliser l'IA avec Esprit Critique</h1>
-            <div class="subtitle">Comment transformer ChatGPT en véritable outil de réflexion</div>
+            <h1 class="main-title">Outils IA pour optimiser ta pratique pédagogique</h1>
+            <p class="subtitle">Transforme tes tâches chronophages en gains de temps</p>
+
         </div>
-        
-        <div class="central-concept">
-            <h2 style="color: #2c3e50; margin-bottom: 10px;">💡 Le concept clé à comprendre</h2>
-            <p style="font-size: 1.1em; color: #555; margin-bottom: 20px;">
-                L'IA ne "pense" pas, elle prédit le mot suivant le plus probable selon ta question
-            </p>
-            
-            <div class="loop">
-                <div class="loop-item">Ta Question</div>
-                <div class="arrow">→</div>
-                <div class="loop-item">Contexte créé</div>
-                <div class="arrow">→</div>
-                <div class="loop-item">Réponse prédite</div>
-                <div class="arrow">→</div>
-                <div class="loop-item">Ta Question</div>
-            </div>
-            
-            <div class="key-message pulse">
-                ⚡ Tu es co-auteur·ice de chaque réponse de l'IA
-            </div>
-        </div>
-        
-        <div class="grid">
-            <div class="section danger">
-                <h2>
-                    <span class="icon">⚠️</span>
-                    Les pièges à éviter
-                </h2>
-                <ul>
-                    <li><strong>L'effet miroir :</strong> L'IA copie ton style et confirme tes idées</li>
-                    <li><strong>La complaisance :</strong> Elle cherche à te satisfaire plutôt qu'à être exacte</li>
-                    <li><strong>La bulle :</strong> Tu dialogues avec tes propres idées reformulées</li>
-                </ul>
-                
-                <div class="example">
-                    <div class="example-label">Piège typique</div>
-                    <div class="example-text">
-                        ❌ "J'ai raison de penser que X est vrai, non ?"<br>
-                        → L'IA va probablement confirmer
-                    </div>
+
+        <div class="tools-grid">
+            <!-- NotebookLM -->
+            <div class="tool-card">
+                <div class="tool-icon">🎧</div>
+                <h2 class="tool-name">NotebookLM</h2>
+                <p class="tool-description">
+                    Transforme tes documents PDF volumineux et vidéos en podcasts audio et synthèses structurées. 
+                    Analyse, questionne et exploite tes ressources pédagogiques sans effort.
+                </p>
+
+                <div class="key-features">
+                    <span class="feature-tag">Podcast automatique</span>
+                    <span class="feature-tag">Vidéo → Audio</span>
+                    <span class="feature-tag">Synthèse intelligente</span>
+                    <span class="feature-tag">Questions-réponses</span>
                 </div>
-            </div>
-            
-            <div class="section success">
-                <h2>
-                    <span class="icon">✨</span>
-                    Techniques pour mieux réfléchir
-                </h2>
-                <ul>
-                    <li><strong>Demander plusieurs angles :</strong> "Donne-moi 3 façons différentes de voir ce problème"</li>
-                    <li><strong>Chercher les failles :</strong> "Où mon raisonnement pourrait être trop simple ?"</li>
-                    <li><strong>Inverser les rôles :</strong> "Quelles questions devrais-je me poser sur ce sujet ?"</li>
-                </ul>
-                
-                <div class="example">
-                    <div class="example-label">Bonne pratique</div>
-                    <div class="example-text">
-                        ✅ "Argumente CONTRE cette idée : [ton idée]"<br>
-                        → Force l'IA à te challenger
-                    </div>
+
+                <div class="examples-section">
+                    <h3 class="examples-title">Exemples d'usage</h3>
+                    <ul class="example-list">
+                        <li>Référentiel métier de 80 pages → Podcast de 15 minutes</li>
+                        <li>Guide pédagogique → Résumé en points clés</li>
+                        <li>Documentation technique → FAQ automatique</li>
+                        <li>Supports de cours → Aide-mémoire synthétique</li>
+                    </ul>
                 </div>
+
+                <a href="https://notebooklm.google.com" class="tool-link" target="_blank">
+                    Accéder à NotebookLM
+                </a>
             </div>
-            
-            <div class="section info">
-                <h2>
-                    <span class="icon">🎯</span>
-                    Comment formuler tes demandes
-                </h2>
-                <ul>
-                    <li><strong>Sois précis·e :</strong> Chaque mot oriente la réponse</li>
-                    <li><strong>Impose des contraintes :</strong> "Explique comme à un·e enfant" ou "En 3 points maximum"</li>
-                    <li><strong>Varie les approches :</strong> Reformule différemment pour explorer</li>
-                </ul>
-                
-                <div class="example">
-                    <div class="example-label">Transformation utile</div>
-                    <div class="example-text">
-                        Au lieu de : "C'est quoi le marketing ?"<br>
-                        Essaie : "Compare 3 définitions contradictoires du marketing"
-                    </div>
+
+            <!-- Napkin -->
+            <div class="tool-card">
+                <div class="tool-icon">🎨</div>
+                <h2 class="tool-name">Napkin.ai</h2>
+                <p class="tool-description">
+                    Crée des visuels pédagogiques percutants sans compétences en design. 
+                    Schémas, infographies et supports visuels générés automatiquement à partir de ton texte.
+                </p>
+
+                <div class="key-features">
+                    <span class="feature-tag">Visuels automatiques</span>
+                    <span class="feature-tag">Zéro design requis</span>
+                    <span class="feature-tag">Formats variés</span>
                 </div>
-            </div>
-            
-            <div class="section warning">
-                <h2>
-                    <span class="icon">🔄</span>
-                    Créer de la friction cognitive
-                </h2>
-                <ul>
-                    <li><strong>Force la contradiction :</strong> Demande toujours un contre-argument</li>
-                    <li><strong>Multiplie les perspectives :</strong> "Comment un·e économiste, un·e philosophe et un·e ingénieur·e verraient ce problème ?"</li>
-                    <li><strong>Teste la robustesse :</strong> "Quelle est la plus grosse faiblesse de cette approche ?"</li>
-                </ul>
-                
-                <div class="example">
-                    <div class="example-label">Question puissante</div>
-                    <div class="example-text">
-                        💪 "Si tu devais me convaincre du contraire, quels seraient tes 3 meilleurs arguments ?"
-                    </div>
+
+                <div class="examples-section">
+                    <h3 class="examples-title">Exemples d'usage</h3>
+                    <ul class="example-list">
+                        <li>Process métier → Schéma explicatif coloré</li>
+                        <li>Statistiques formation → Infographie attractive</li>
+                        <li>Concept abstrait → Visualisation simple</li>
+                        <li>Parcours apprenant → Timeline interactive</li>
+                    </ul>
                 </div>
+
+                <a href="https://napkin.ai" class="tool-link" target="_blank">
+                    Découvrir Napkin.ai
+                </a>
             </div>
-        </div>
-        
-        <div class="footer">
-            <div class="principle">
-                <strong>🎓 Principe fondamental :</strong><br>
-                La qualité de la réponse ne dépend pas de l'intelligence de l'IA,<br>
-                mais de ta capacité à structurer des questions qui génèrent de la réflexion critique.
-            </div>
-            
-            <div class="signature">
-                <span><strong>Rochane Kherbouche</strong></span>
-                <div class="cc-license">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                        <circle cx="32" cy="32" r="30" fill="none" stroke="white" stroke-width="4"/>
-                        <path d="M32 15c-9.4 0-17 7.6-17 17s7.6 17 17 17c4.5 0 8.6-1.7 11.7-4.6l-4.2-3.7c-2.1 1.8-4.7 2.8-7.5 2.8-6.4 0-11.5-5.2-11.5-11.5S25.6 20.5 32 20.5c2.8 0 5.4 1 7.5 2.8l4.2-3.7C40.6 16.7 36.5 15 32 15z"/>
-                        <path d="M41 27c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 5.5c-0.8 0-1.5-0.7-1.5-1.5s0.7-1.5 1.5-1.5 1.5 0.7 1.5 1.5-0.7 1.5-1.5 1.5z"/>
-                    </svg>
-                    <span>CC BY-SA</span>
+
+            <!-- Gamma -->
+            <div class="tool-card">
+                <div class="tool-icon">📊</div>
+                <h2 class="tool-name">Gamma</h2>
+                <p class="tool-description">
+                    Génère des présentations professionnelles en quelques minutes. 
+                    Design automatique, contenu structuré et personnalisation intuitive pour tes formations.
+                </p>
+
+                <div class="key-features">
+                    <span class="feature-tag">Création rapide</span>
+                    <span class="feature-tag">Design professionnel</span>
+                    <span class="feature-tag">Personnalisable</span>
                 </div>
+
+                <div class="examples-section">
+                    <h3 class="examples-title">Exemples d'usage</h3>
+                    <ul class="example-list">
+                        <li>Brief formation → Présentation complète en 5 min</li>
+                        <li>Rapport d'activité → Slides visuellement attrayantes</li>
+                        <li>Support de cours → Diaporama structuré</li>
+                        <li>Bilan pédagogique → Présentation impactante</li>
+                    </ul>
+                </div>
+
+                <a href="https://gamma.app" class="tool-link" target="_blank">
+                    Essayer Gamma
+                </a>
             </div>
         </div>
     </div>
